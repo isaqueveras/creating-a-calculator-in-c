@@ -1,34 +1,36 @@
 # include <stdio.h>
 
-// sum - sum two values
-int sum(int num1, int num2) {
-	printf("%d + %d = %d\n", num1, num2, num1 + num2);
-	return num1 + num2;
+// calculator - calculate two values ​​by passing the calculation method
+int calculator(int num1, int num2, int method) {
+	if (method == 1) {
+		return num1 + num2; // method that adds two numbers
+	} else if (method == 2) {
+		return num1 / num2; // method that divides two numbers
+	} else if (method == 3) {
+		return num1 * num2; // method that multiplication two numbers
+	} else if (method == 4) {
+		return num1 - num2; // method that subtraction two numbers
+	} else {
+		printf("Enter a valid method");
+	}
+	
+	return 0;
 }
 
-// division - division two values
-int division(int num1, int num2) {
-	printf("%d ÷ %d = %d\n", num1, num2, num1 / num2);
-	return num1 / num2;
-}
-
-// multiplication - multiplication two values
-int multiplication(int num1, int num2) {
-	printf("%d x %d = %d\n", num1, num2, num1 * num2);
-	return num1 * num2;
-}
-
-// subtraction - subtraction two values
-int subtraction(int num1, int num2) {
-	printf("%d - %d = %d\n", num1, num2, num1 - num2);
-	return num1 - num2;
-}
-
+// function main
 int main() {
-	sum(1,2); // function that adds two numbers	
-	division(10,2); // function that divides two numbers
-	multiplication(5, 5); // function that multiplication two number
-	subtraction(10, 5); // function that subtraction two number
+	int num1, num2, method;
+	printf("Enter the method to calculate\n1 - Sum\n2 - Divides\n3 - Multiplication\n4 - Subtraction\n");
+	scanf("%d", &method);
+	
+	printf("Enter the first number: ");
+	scanf("%d", &num1);
+	
+	printf("Enter the second number: ");
+	scanf("%d", &num2);
+	
+	int vals = calculator(num1, num2, method);
+	printf("The result is: %d", vals);
 	
 	return 0;
 }
